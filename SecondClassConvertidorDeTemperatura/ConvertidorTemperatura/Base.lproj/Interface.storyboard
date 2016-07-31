@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <group width="1" alignment="left" id="dj5-jI-H3d">
+                            <items>
+                                <imageView width="26" height="40" alignment="left" image="thermometer.png" id="t6M-rB-Jmr"/>
+                                <label width="107.5" alignment="left" text="Convertidor de Temperatura" textAlignment="right" numberOfLines="3" id="3G6-lx-MgA">
+                                    <color key="textColor" red="0.066229517085838907" green="1" blue="0.018494744235835081" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                </label>
+                            </items>
+                        </group>
+                        <slider width="1" alignment="left" value="32" maximum="100" steps="100" id="iVc-M5-l8h">
+                            <connections>
+                                <action selector="cambioTemperatura:" destination="AgC-eL-Hgc" id="Z0I-XA-eFK"/>
+                            </connections>
+                        </slider>
+                        <label alignment="center" verticalAlignment="center" text="32ºF = 0ºC" id="wSS-8h-63H">
+                            <color key="textColor" red="1" green="0.0" blue="0.0093617555427760735" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="N0rf3n - 2016" textAlignment="center" id="Ac7-fn-ihs">
+                            <color key="textColor" red="0.10159471393374719" green="0.11446376907617772" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="lblTemperatura" destination="wSS-8h-63H" id="EDf-Ef-VBM"/>
+                        <outlet property="temperaturaSlider" destination="iVc-M5-l8h" id="Qid-ce-56O"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="325" y="400"/>
+        </scene>
+    </scenes>
+</document>

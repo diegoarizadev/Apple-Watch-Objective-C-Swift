@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="EggTimerWatch" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" id="mR7-Td-1V0">
+                            <items>
+                                <imageView width="40" height="40" alignment="left" image="eggtimer.png" id="ztI-W9-Ax9"/>
+                                <label width="97" alignment="center" verticalAlignment="center" text="Reloj de arena" textAlignment="center" numberOfLines="2" id="2t7-Pk-FOP">
+                                    <color key="textColor" red="1" green="0.015538307621047354" blue="0.051935076279694958" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
+                            </items>
+                        </group>
+                        <timer width="136" alignment="left" textAlignment="center" format="short" id="3Nv-la-QiS">
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                        <button width="1" height="25" alignment="left" title="Suave" id="of9-f3-emm">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.85199116253018681" blue="0.027063416330723178" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                            <connections>
+                                <action selector="btnSuavePressed" destination="AgC-eL-Hgc" id="7lB-GE-WZ5"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="25" alignment="left" title="Medio" id="E2s-aI-GUl">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.59171710035300584" blue="0.023035783286679656" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                            <connections>
+                                <action selector="btnMedioPressed" destination="AgC-eL-Hgc" id="nTc-K9-4Qe"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="25" alignment="left" title="Rapido" id="DTy-th-xs8">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.013561673876933744" blue="0.024935384815484629" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                            <connections>
+                                <action selector="btnRapidoPressed" destination="AgC-eL-Hgc" id="O8b-lR-YEO"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="25" alignment="left" title="Reiniciar!" id="jK2-me-4gt">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.3830985009840292" green="1" blue="0.065129439731544725" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                            <connections>
+                                <action selector="btnReiniciarPressed" destination="AgC-eL-Hgc" id="2a8-gE-tYd"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="btnMedio" destination="E2s-aI-GUl" id="xt0-TS-pbf"/>
+                        <outlet property="btnRapido" destination="DTy-th-xs8" id="NS7-gi-u9w"/>
+                        <outlet property="btnReiniciar" destination="jK2-me-4gt" id="AHT-Vp-wCc"/>
+                        <outlet property="btnSuave" destination="of9-f3-emm" id="U6F-r9-LUx"/>
+                        <outlet property="cuentaRegresiva" destination="3Nv-la-QiS" id="H9k-qB-7cp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="305" y="386"/>
+        </scene>
+    </scenes>
+</document>
