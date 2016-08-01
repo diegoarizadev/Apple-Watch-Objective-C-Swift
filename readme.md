@@ -1,5 +1,5 @@
 # Apple Watch
-# Aplicaciones desarrlladas para Apple Watch
+# Aplicaciones desarrolladas para Apple Watch
 
 
 ![Alt text](https://lh3.googleusercontent.com/-syRUZqluKUM/Vr9ccZ5t1TI/AAAAAAAADxQ/Y576S8ygn8kHrvjkuWb8hyxK8MdvUP2dgCCo/s512/Captura%2Bde%2Bpantalla%2B2016-02-13%2Ba%2Blas%2B11.34.35%2Ba.m..png "1")
