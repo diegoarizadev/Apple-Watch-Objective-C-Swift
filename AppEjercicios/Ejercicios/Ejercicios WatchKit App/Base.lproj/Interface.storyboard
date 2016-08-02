@@ -10,14 +10,19 @@
             <objects>
                 <controller title="Ejercicios" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Ejercicios_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <timer width="136" alignment="center" textAlignment="center" previewedSeconds="0" id="lwl-B6-iXy">
+                        <timer width="93" alignment="center" textAlignment="center" previewedSeconds="0" id="lwl-B6-iXy">
                             <color key="textColor" red="1" green="0.033141871639396636" blue="0.022609335683523746" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="27"/>
                         </timer>
                         <label alignment="center" text="Label" id="DaT-ny-IDL">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
-                        <label alignment="center" text="Label" id="FLk-DD-H9z"/>
+                        <timer height="16" alignment="center" textAlignment="center" baselineAdjustment="alignCenters" previewedSeconds="35" id="iNd-os-d1O">
+                            <color key="textColor" red="1" green="0.92293074866751745" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="13"/>
+                            <calendarUnit key="units" second="YES"/>
+                        </timer>
+                        <label alignment="center" hidden="YES" text="Label" id="FLk-DD-H9z"/>
                         <button width="1" height="30" alignment="left" title="Iniciar" id="LSu-SO-CIN">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" red="0.11818209653873601" green="1" blue="0.026614261919350901" alpha="1" colorSpace="calibratedRGB"/>
@@ -32,10 +37,28 @@
                                 <action selector="detener" destination="AgC-eL-Hgc" id="8Py-Pz-xnH"/>
                             </connections>
                         </button>
+                        <button width="1" height="30" alignment="left" title="Atras C. Regresiva" id="3x3-l9-MB7">
+                            <color key="titleColor" red="1" green="0.97979374149024179" blue="0.81036414674416779" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.063756473522493917" green="0.34940936672599965" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="12"/>
+                            <connections>
+                                <action selector="atras" destination="AgC-eL-Hgc" id="GLP-rP-cnO"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="30" alignment="left" title="Pausar C. Regresiva" id="PJA-8w-JjN">
+                            <color key="backgroundColor" red="1" green="0.16165457055578758" blue="0.030365739360661892" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                            <connections>
+                                <action selector="pauseResumePressed" destination="AgC-eL-Hgc" id="JeA-E0-Sog"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
+                        <outlet property="WKTimer" destination="iNd-os-d1O" id="wRH-8Z-nNR"/>
+                        <outlet property="btnAtras" destination="3x3-l9-MB7" id="vAQ-Ct-fmc"/>
                         <outlet property="btnDetener" destination="Z8D-AG-kAz" id="ZtG-aJ-vrM"/>
                         <outlet property="btnIniciar" destination="LSu-SO-CIN" id="mfU-te-H5p"/>
+                        <outlet property="btnPausa" destination="PJA-8w-JjN" id="JRo-T8-Yst"/>
                         <outlet property="contador" destination="lwl-B6-iXy" id="Eds-be-m3o"/>
                         <outlet property="lblCalorias" destination="DaT-ny-IDL" id="hAu-6R-H2c"/>
                         <outlet property="lblPasos" destination="FLk-DD-H9z" id="nZA-05-OdF"/>
@@ -43,7 +66,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="191" y="346.75"/>
+            <point key="canvasLocation" x="191" y="346.5"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="90H-xQ-OQc">

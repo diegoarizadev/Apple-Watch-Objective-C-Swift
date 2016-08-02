@@ -18,7 +18,18 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var lblPasos : WKInterfaceLabel!
     @IBOutlet var btnIniciar : WKInterfaceButton!
     @IBOutlet var btnDetener : WKInterfaceButton!
+    @IBOutlet var btnAtras : WKInterfaceButton!
+    @IBOutlet var btnPausa : WKInterfaceButton!
     
+    @IBOutlet weak var WKTimer: WKInterfaceTimer!
+    
+    //Variables
+    var myTimer : NSTimer?                  //Temporizador interno para realizar un seguimiento
+    var tiempoAtras : NSTimeInterval = 32.0 //Segundos a ejecutar.
+    var isPaused = false                    //Flag o bandera para determinar si está o no en pausa
+    var startTime = NSDate()
+    var elapsedTime : NSTimeInterval = 0.0  //Tiempo que ha pasado entre pausa / reanudar
+
     
     //Acciones para los botones.Acciones
     @IBAction func iniciar(){
@@ -31,6 +42,8 @@ class InterfaceController: WKInterfaceController {
         //REgresiva, El objeto NSDATE debe ser futuro.
         contador.start() //Inicia el conteo
         
+    
+        
     }
     
     @IBAction func detener(){
@@ -40,6 +53,74 @@ class InterfaceController: WKInterfaceController {
         contador.stop()//Detiene el conteo.
         
     }
+    
+    
+    
+    @IBAction func atras(){
+        
+        NSLog("Boton Atras")
+        print("Devolviendo el tiempo....")
+        contador.stop()//Detiene el conteo.
+
+        myTimer = NSTimer.scheduledTimerWithTimeInterval(tiempoAtras,
+                                                         target: self,
+                                                         selector: Selector("timerDone"),
+                                                         userInfo: nil,
+                                                         repeats: false)
+        
+        WKTimer.setDate(NSDate(timeIntervalSinceNow: tiempoAtras ))
+        WKTimer.start()
+        
+        
+    }
+    
+    
+    func timerDone(){
+        print("Ejecutando TimerDone....")
+        atras()
+    }
+    
+    @IBAction func pauseResumePressed() {
+        //Si, el temporizador está en pausa. quitar la pausa y reanudar la cuenta regresiva
+        if isPaused{
+            
+             print("isPaused....")
+            
+            isPaused = false
+            myTimer = NSTimer.scheduledTimerWithTimeInterval(tiempoAtras - elapsedTime,
+                                                             target: self,
+                                                             selector: Selector("timerDone"),
+                                                             userInfo: nil,
+                                                             repeats: false)
+            
+            WKTimer.setDate(NSDate(timeIntervalSinceNow: tiempoAtras - elapsedTime))
+            
+            WKTimer.start()
+            startTime = NSDate()
+            btnPausa.setTitle("Pause")
+            
+            
+        }else{ //Pausar el temporizador.
+            
+            print("NO isPaused....")
+            
+            isPaused = true
+            
+            //obtener la cantidad de tiempo transcurrido antes de que se detuvieron
+            let paused = NSDate()
+            elapsedTime += paused.timeIntervalSinceDate(startTime)
+            
+            //detener el temporizador watchkit en la pantalla
+            WKTimer.stop()
+            
+            //detener el tic-tac del reloj interno
+            myTimer!.invalidate()
+            
+            btnPausa.setTitle("Resumen")
+            
+        }
+    }
+    
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -58,6 +139,11 @@ class InterfaceController: WKInterfaceController {
          print("La pantalla esta activa....")
         
         
+        //myTimer = NSTimer.scheduledTimerWithTimeInterval(tiempoAtras, target: self, selector: Selector("timerDone"), userInfo: nil, repeats: false)
+        //WKTimer.setDate(NSDate(timeIntervalSinceNow: tiempoAtras ))
+        //WKTimer.start()
+        
+        
         
     }
 
@@ -71,5 +157,6 @@ class InterfaceController: WKInterfaceController {
 
         
     }
+
 
 }
